@@ -1,1 +1,18 @@
-<p>user-list works! {{ appName }}</p>
+<table>
+  <thead>
+    <tr>
+      <th>名</th>
+      <th>ロール</th>
+      <th *ngIf="utils.AppName.Operator === appName">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of fetchUser() | async">
+      <th>{{ user.name }}</th>
+      <th>{{ user.role }}</th>
+      <th *ngIf="utils.AppName.Operator === appName">
+        <button>削除</button>
+      </th>
+    </tr>
+  </tbody>
+</table>
