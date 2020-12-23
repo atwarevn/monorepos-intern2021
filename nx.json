@@ -39,6 +39,9 @@
     },
     "shared-user-management": {
       "tags": []
+    },
+    "utils": {
+      "tags": []
     }
   }
 }

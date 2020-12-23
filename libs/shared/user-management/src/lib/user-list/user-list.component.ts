@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { AppName, AppNameInjectionToken } from '@monorepos/utils';
 
 @Component({
   selector: 'monorepos-user-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
-  constructor() {}
+  constructor(@Inject(AppNameInjectionToken) public appName: AppName) {}
 
   ngOnInit(): void {}
 }

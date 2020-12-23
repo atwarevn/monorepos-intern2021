@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { AppName, AppNameInjectionToken } from '@monorepos/utils';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,12 @@ import { RouterModule } from '@angular/router';
       { initialNavigation: 'enabled' }
     ),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AppNameInjectionToken,
+      useValue: AppName.Accounting,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

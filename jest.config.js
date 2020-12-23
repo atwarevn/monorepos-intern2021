@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/operator',
     '<rootDir>/apps/accounting',
     '<rootDir>/libs/shared/user-management',
+    '<rootDir>/libs/utils',
   ],
 };

@@ -17,7 +17,8 @@
     "paths": {
       "@monorepos/shared/user-management": [
         "libs/shared/user-management/src/index.ts"
-      ]
+      ],
+      "@monorepos/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
