@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.TodoAPI.model.Todo;
 import com.example.TodoAPI.repository.TodoRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")
+
 @RestController
 @RequestMapping("/api")
 public class TodoController {
@@ -32,6 +32,25 @@ public class TodoController {
 
   public TodoController(TodoRepository todoRepository) {
     this.todoRepository = todoRepository;
+  }
+  @GetMapping("/todos")
+  public ResponseEntity<List<Todo>> getAllTodos(@RequestParam(required = false) String title) {
+    try {
+      List<Todo> todos = new ArrayList<Todo>();
+
+      if (title == null)
+        todoRepository.findAll().forEach(todos::add);
+      else
+        todoRepository.findByContentContaining(title).forEach(todos::add);
+
+      if (todos.isEmpty()) {
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      }
+
+      return new ResponseEntity<>(todos, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   @GetMapping("/todo/{id}")
