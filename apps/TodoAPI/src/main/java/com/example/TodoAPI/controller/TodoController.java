@@ -33,6 +33,7 @@ public class TodoController {
   public TodoController(TodoRepository todoRepository) {
     this.todoRepository = todoRepository;
   }
+  @CrossOrigin
   @GetMapping("/todos")
   public ResponseEntity<List<Todo>> getAllTodos(@RequestParam(required = false) String title) {
     try {
