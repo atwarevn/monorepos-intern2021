@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.TodoAPI.model.Todo;
 import com.example.TodoAPI.repository.TodoRepository;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class TodoController {
