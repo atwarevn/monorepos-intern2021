@@ -1,8 +1,31 @@
-<div class="main">
-  <h1>My To Do List</h1>
-  <h2>What would you want to do today?</h2> 
-  <button>Add Todo</button>
-  <ul>
-    <li *ngFor="let todo of todos">{{todo.content}}</li>
-  </ul>
+<div class="container">
+  <h1 class="text-center mt-4">My To Do List</h1>
+  <h2 class="text-center">What would you want to do today?</h2> 
+  <a class="btn btn-primary text-light float-right mb-3"> <i class="fas fa-plus-circle"></i> Add Todo</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Content</th>
+        <th scope="col" class="text-center">Deadline</th>
+        <th scope="col" class="text-center">Done ?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">1</td>
+        <td>Go to the supermarket because tommorrow the city will lockdown</td>
+        <td class="text-center">12/7</td>
+        <td class="text-center"><input type="checkbox"></td>
+      </tr>
+
+      <tr *ngFor="let todo of todos">
+        <td scope="row">{{todo.ID}}</td>
+        <td>{{todo.content}}</td>
+        <td class="text-center">{{todo.deadline}}</td>
+        <td><input type="checkbox"></td>
+      </tr>
+    </tbody>
+  </table>
 </div>  
