@@ -62,5 +62,17 @@ public class TodoController {
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+
+  }
+  @PostMapping("/todos")
+  public ResponseEntity<Todo> createTutorial(@RequestBody Todo todo) {
+    try {
+      Todo _tutorial = todoRepository
+        .save(new Todo(todo.getId(), todo.getContent(),  todo.isDone(), todo.getDeadline()));
+      return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
+    } catch (Exception e) {
+      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

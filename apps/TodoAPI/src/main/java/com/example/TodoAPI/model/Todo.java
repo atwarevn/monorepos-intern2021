@@ -20,6 +20,17 @@ public class Todo {
   @Column(name="deadline")
   private Date deadline;
 
+  public Todo() {
+
+  }
+
+  public Todo(long id, String content, boolean done, Date deadline) {
+    this.id = id;
+    this.content = content;
+    this.done = done;
+    this.deadline = deadline;
+  }
+
   public long getId() {
     return id;
   }
